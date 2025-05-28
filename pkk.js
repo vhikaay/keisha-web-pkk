@@ -76,7 +76,11 @@ function tambahkeranjang(id) {
     `;
     cart_items.append(div);
   });
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const totalElement = document.createElement("div");
+  totalElement.innerHTML = `total pesenan saya: Rp.${total.toLocaleString()}`
 
+  cart_items.append(totalElement)
   if (!document.getElementById("checkout-button")) {
     const buttonCheckout = document.createElement("button");
     buttonCheckout.id = "checkout-button";
